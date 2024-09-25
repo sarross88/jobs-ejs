@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const parseVErr = require("../util/parseValidationErrs");
+const parseVErr = require("../util/parseValidationErr");
 
 const registerShow = (req, res) => {
   res.render("register");
@@ -34,11 +34,21 @@ const logoff = (req, res) => {
   });
 };
 
+// const logonShow = (req, res) => {
+//   if (req.user) {
+//     return res.redirect("/");
+//   }
+//   res.render("logon");
+// };
+
 const logonShow = (req, res) => {
   if (req.user) {
     return res.redirect("/");
   }
-  res.render("logon");
+  res.render("logon", {
+    errors: req.flash("error"),
+    info: req.flash("info"),
+  });
 };
 
 module.exports = {
