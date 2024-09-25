@@ -1,7 +1,8 @@
+//IGNORE THIS 
+
+
 const express = require("express");
 require("express-async-errors");
-const express = require('express')
-const app = express();
 
 //security packages 
 const helmet = require('helmet')
@@ -9,10 +10,11 @@ const cors = require('cors')
 const xxs = require('xxs-clean')
 const rateLimit = require('express-rate-limit')
 
+const express = require('express')
+const app = express();
+
 app.set("view engine", "ejs");
 app.use(require("body-parser").urlencoded({ extended: true }));
-
-
 
 //ABOVE route or posts 
 require("dotenv").config(); // to load the .env file into the process.env object
@@ -70,16 +72,16 @@ app.use(require("./middleware/storeLocals"));
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.use("/sessions", require("./routes/sessionRoutes"));
+// app.use("/sessions", require("./routes/sessionRoutes"));
 //Stop after connect flash
 
 //auth right above secret routes 
 const auth = require("./middleware/auth");
-app.use("/secretWord", auth, secretWordRouter);
+// app.use("/secretWord", auth, secretWordRouter);
 
 // secret word handling
-const secretWordRouter = require("./routes/secretWord");
-app.use("/secretWord", secretWordRouter);
+// const secretWordRouter = require("./routes/secretWord");
+// app.use("/secretWord", secretWordRouter);
 //end secret word handling 
 
 app.use((req, res) => {
