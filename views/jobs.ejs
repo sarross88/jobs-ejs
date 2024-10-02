@@ -10,7 +10,7 @@
   </tr>
   <% if (jobs && jobs.length) { %>
     <% jobs.forEach((job) => { %>
-      <tr>
+      <tr id="job-list">
         <td><%= job.company %></td>
         <td><%= job.position %></td>
         <td><%= job.status %></td>

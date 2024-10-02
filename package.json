@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "NODE_ENV=test mocha tests/*.js --timeout 5000 --exit"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^5.0.0",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "eslint": "^9.9.1",
@@ -30,5 +31,13 @@
     "passport-local": "^1.0.0",
     "prettier": "^3.3.3",
     "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "chai": "^5.1.1",
+    "chai-http": "^5.0.0",
+    "factory-bot": "^6.3.1",
+    "mocha": "^10.7.3",
+    "puppeteer": "^23.4.1"
   }
 }
